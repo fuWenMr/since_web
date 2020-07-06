@@ -15,19 +15,6 @@ module.exports = {
     path: outputPath,
   },
 
-  // module: {
-  //   rules: [
-  //     {
-  //       test: /\.css$/,
-  //       use: ['style-loader', 'css-loader']
-  //     },
-  //     {
-  //       test: /\.less$/,
-  //       use: ['style-loader','css-loader', 'less-loader'],
-  //     },
-  //   ],
-  // },
-
   module: {
     rules: [
       {
@@ -73,6 +60,12 @@ module.exports = {
       ],
     }),
   ],
+
+  resolve: {
+    alias: {
+      '~': path.resolve(__dirname, './src'),
+    }
+  },
 
   devServer: {
     contentBase: outputPath,
