@@ -1,5 +1,6 @@
 const path = require('path');
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const outputPath = path.resolve(__dirname, 'build');
 
 module.exports = {
@@ -13,20 +14,23 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: 'css-loader'
+        }),
       },
       {
         test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'less-loader',
-        ],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'less-loader'],
+        }),
       },
     ],
   },
+
+  plugins: [
+    new ExtractTextPlugin('styles.css'),  //打包后的文件名
+  ],
 
 };
