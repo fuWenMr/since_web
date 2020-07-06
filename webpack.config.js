@@ -74,4 +74,12 @@ module.exports = {
     }),
   ],
 
+  devServer: {
+    contentBase: outputPath,
+    port: 8081,
+    open: true,
+    compress: true,
+    openPage: '/page/index/index.html',
+  }
+
 };

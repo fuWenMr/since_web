@@ -1,2 +1,2 @@
 import './index.less'
-console.log('这是页面indx');
+console.log('这是页面index heelo world');
