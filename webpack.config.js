@@ -1,5 +1,5 @@
 const path = require('path');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const outputPath = path.resolve(__dirname, 'build');
 
@@ -31,6 +31,10 @@ module.exports = {
 
   plugins: [
     new ExtractTextPlugin('styles.css'),  //打包后的文件名
+    new HtmlWebpackPlugin({
+      title: '森思教学',
+      minify: false,
+    }),
   ],
 
 };
