@@ -9,4 +9,16 @@ module.exports = {
     path: outputPath,
   },
 
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
+      },
+    ],
+  },
+
 };
