@@ -31,10 +31,8 @@ function genEntry(chunksnames){
 //新增页面只需在此添加你的模块就好
 let pages = ['index','login','user'];
 entrys = genEntry(pages);
-console.log(entrys)
-console.log('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~')
 htmlWebpackPlugin = genHtmlWebpackPlugin(pages);
-// console.log(htmlWebpackPlugin)
+
 
 
 module.exports = {
@@ -76,5 +74,4 @@ module.exports = {
       ],
     }),
   ],
-
 };
