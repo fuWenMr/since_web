@@ -3,13 +3,45 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+//
+const pages = require('./config/pageConfig');
 const outputPath = path.resolve(__dirname, 'build');
 
+
+function genHtmlWebpackPlugin(pages){
+  let ret = [];
+  for (let page of pages) {
+    const chunksname = page.name;
+    ret.push(
+      new HtmlWebpackPlugin({
+        title: page.title ? page.title : chunksname, 
+        filename: `page/${chunksname}/index.html`,
+        template: `./src/page/${chunksname}/index.html`,
+        minify: false,
+        chunks: page.chunks || [chunksname],
+      })
+    );
+  }
+  return ret;
+  
+}
+
+function genEntry(pages){
+  let ret = {};
+  for (let page of pages) {
+    const chunksname = page.name;
+    ret[chunksname] = `./src/page/${chunksname}/index.js`;
+  }
+  return ret;
+}
+
+const entry = genEntry(pages);
+const htmlWebpackPlugin = genHtmlWebpackPlugin(pages);
+
+
 module.exports = {
-  entry: {
-    index: './src/page/index/index.js',
-    login: './src/page/login/index.js',
-  },
+  entry,
   output: {
     filename: 'page/[name]/index.b.js',
     path: outputPath,
@@ -39,20 +71,7 @@ module.exports = {
       allChunks: true,
       filename: 'page/[name]/[name].css',
     }),  //打包后的文件名
-    new HtmlWebpackPlugin({
-      title: '森思教学的indx页面',
-      filename: 'page/index/index.html',
-      template: './src/page/index/index.html',
-      minify: false,
-      chunks: ['index'],
-    }),
-    new HtmlWebpackPlugin({
-      title: '森思教学的login页面',
-      filename: 'page/login/index.html',
-      template: './src/page/login/index.html',
-      minify: false,
-      chunks: ['login'],
-    }),
+    ...htmlWebpackPlugin,
     new CleanWebpackPlugin(),
     new CopyPlugin({
       patterns: [
