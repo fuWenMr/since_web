@@ -36,9 +36,8 @@ function ajax (method, url, params, errMsg = '网络或服务器异常，请重�
     const ajaxId = getAjaxId();
     ajaxDebugger('', `${method}(${ajaxId}) 发送请求`, url);
     ajaxMethod(url, ajaxParams).then((res) => {
-      console.log(res)
       const { code, data, errMsg } = res.data;
-      ajaxDebugger('', `${method}(${ajaxId}) 得到相应`, url, code, body);
+      ajaxDebugger('', `${method}(${ajaxId}) 得到相应`, url, code, data);
       if (isGlobalErrCode(code)) {
         ajaxDebugger('glob err ajax');
         // 全局异常 直接处理了 reject
