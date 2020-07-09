@@ -4,14 +4,14 @@ import {
   ajax,
 } from './ajax_axios';
 
-export const getIndex = (userNmae, password) => {
-    return get('http://localhost:8081//page/index/index.html', { userNmae, password } );
+export const getIndex = (userName, password) => {
+    return get('http://localhost:8081//page/index/index.html', { userName, password } );
 }
 
-export const doLogin = (userNmae, password) => {
-  return post('./login', { userNmae, password } );
+export const doLogin = (userName, password) => {
+  return post('./login', { userName, password } );
 }
 
-export const getUser = (userNmae, info) => {
-  return get('./user', { userNmae, info } );
+export const getUser = (userName, info) => {
+  return get('./user', { userName, info } );
 }
