@@ -17,4 +17,6 @@ webpack config 中新增reslove.alias  同时修改 /jsconfig.json 文件来支�
 页面变更只需要在./config/pageConfig中做出响应更改即可
 
 
- 
+### 13
+
+./src下创建了ajax文件夹 统一管理ajax请求，向外暴露出语义化命名的函数

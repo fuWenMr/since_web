@@ -1,7 +1,5 @@
 import debug from 'debug';
 
-const debug1 = debug('worker:a');
+export const ajaxDebugger = debug('worker:ajax');
 
-export {
-  debug1,
-};
+export const debug1 = debug('worker:a');

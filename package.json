@@ -23,7 +23,12 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "antd": "^4.4.1",
+    "datejs": "^1.0.0-rc3",
     "debug": "^4.1.1",
+    "loadsh": "^0.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "umbrella-storage": "^1.0.2"
   }
 }
