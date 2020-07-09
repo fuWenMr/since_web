@@ -40,9 +40,10 @@ function ajax (method, url, params, errMsg = '网络或服务器异常，请重�
       const { code, data, errMsg } = body;
       ajaxDebugger('', `${method}(${ajaxId}) 得到相应`, url, code, body);
       if (isGlobalErrCode(code)) {
-        ajaxDebugger('glob err ajax')
+        ajaxDebugger('glob err ajax');
         // 全局异常 直接处理了 reject
-        reject(res);
+        message.error(errMsg);
+        reslove(code,data,errMsg);
       } else {
         // 请求成功或者局部异常 交给业务处理 reslove
         reslove(code, data, errMsg);
