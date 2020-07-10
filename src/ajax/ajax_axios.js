@@ -6,7 +6,7 @@ import { host } from './config';
 /**
  * 用来生成一个不重复的自增值
  */
-const getAjaxId = (function() {
+const getAjaxId = (function () {
   let id = 0;
   return () => id++;
 })() 
@@ -18,7 +18,7 @@ const getAjaxId = (function() {
  * @param { any } data 
  * @param errMsg 
  */
-function ajax (method, url, params, errMsg = '网络或服务器异常，请重试') {
+function ajax(method, url, params, errMsg = '网络或服务器异常，请重试') {
   return new Promise((reslove, reject) => {
     let ajaxParams = {};
     let ajaxMethod = {};
@@ -31,7 +31,7 @@ function ajax (method, url, params, errMsg = '网络或服务器异常，请重�
     } else {
       // 不支持的请求
       ajaxDebugger('不支持的请求');
-      return ;
+      return;
     }
     const ajaxId = getAjaxId();
     ajaxDebugger('', `${method}(${ajaxId}) 发送请求`, url);
@@ -54,7 +54,7 @@ function ajax (method, url, params, errMsg = '网络或服务器异常，请重�
       ajaxDebugger(err);
       message.error(errMsg);
       reject(err);
-    }) ;
+    });
   });
 }
 
@@ -62,15 +62,15 @@ function ajax (method, url, params, errMsg = '网络或服务器异常，请重�
  * 判断是不是全局错误码
  * @param {*} code 
  */
-function isGlobalErrCode (code) {
+function isGlobalErrCode(code) {
   // TODO 这里还需要补全一下
   return (code == 11 ) ? true : false;
 }
-export {ajax};
+export { ajax };
 export const get = (url, params, errMsg) => {
   return ajax('get', url, params, errMsg)
 };
 
-export const post = (url, data ,errMsg) => {
+export const post = (url, data, errMsg) => {
   return ajax('post', url, data, errMsg)
 };
