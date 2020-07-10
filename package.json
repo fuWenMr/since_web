@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "antd": "^4.4.1",
+    "axios": "^0.19.2",
     "datejs": "^1.0.0-rc3",
     "debug": "^4.1.1",
     "loadsh": "^0.0.4",
