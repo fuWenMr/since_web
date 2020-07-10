@@ -21,6 +21,6 @@ webpack config 中新增reslove.alias  同时修改 /jsconfig.json 文件来支�
 
 ./src下创建了ajax文件夹 统一管理ajax请求，向外暴露出语义化命名的函数
 
-### 13
+### 14
 
 引入了eslint 整合进webpack，在编译过程中对代码进行规范检测， 自定义了一套基础前端代码规范， 以后再上流行规范(考虑到一次性引入成本太大);
