@@ -36,16 +36,17 @@ function ajax (method, url, params, errMsg = '网络或服务器异常，请重�
     const ajaxId = getAjaxId();
     ajaxDebugger('', `${method}(${ajaxId}) 发送请求`, url);
     ajaxMethod(url, ajaxParams).then((res) => {
-      const { code, data, errMsg } = res.data;
-      ajaxDebugger('', `${method}(${ajaxId}) 得到相应`, url, code, data);
+      const body = res.data;
+      const { code, data, errMsg } = body;
+      ajaxDebugger('', `${method}(${ajaxId}) 得到相应`, url, code, body);
       if (isGlobalErrCode(code)) {
         ajaxDebugger('glob err ajax');
         // 全局异常 直接处理了 reject
         message.error(errMsg);
-        reslove(res.data);
+        reslove(body);
       } else {
         // 请求成功或者局部异常 交给业务处理 reslove
-        reslove(res.data);
+        reslove(body);
       }
     }, (err) => {
       // 网络异常 or 服务器挂
