@@ -29,3 +29,7 @@ webpack config 中新增reslove.alias  同时修改 /jsconfig.json 文件来支�
 
 新增npm 命令 gen 通过自定义脚本 根据pageConfig自动生成相关的page目录下的基础页面文件
 修改pageConfig后直接运行 cnpm run gen 即可
+
+### 16
+
+添加sourceMap配置以支持浏览器调试
