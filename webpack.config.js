@@ -41,6 +41,7 @@ const htmlWebpackPlugin = genHtmlWebpackPlugin(pages);
 
 
 module.exports = {
+  devtool: 'source-map',
   entry,
   output: {
     filename: 'page/[name]/index.b.js',

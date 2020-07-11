@@ -14,19 +14,18 @@ console.log('从stroage中取出的内容', umbrella.getLocalStorage('app'));
 
 message.success('假装这是一个持续的loading');
 
-
 doLogin('dgb', 'drb').then((data) => {
-    if (data.code === '0') {
-        message.success('请求成功');
-        console.log(data);
-        return;
-    } else if (data.code == '404') {
-        console.log(errMsg);
-    } else {
-        console.log('error!!!!!!!!!!!!!');
-        message.error('大概是用户的错吧');
-    }
+  if (data.code === '0') {
+    message.success('请求成功');
+    console.log(data);
+    return;
+  } else if (data.code == '404') {
+    console.log(errMsg);
+  } else {
+    console.log('error!!!!!!!!!!!!!');
+    message.error('大概是用户的错吧');
+  }
 }).finally(() => {
-    message.success('假装这是请求结束 loading消失');
+  message.success('假装这是请求结束 loading消失');
 });
 
