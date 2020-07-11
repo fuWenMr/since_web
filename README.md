@@ -24,3 +24,8 @@ webpack config 中新增reslove.alias  同时修改 /jsconfig.json 文件来支�
 ### 14
 
 引入了eslint 整合进webpack，在编译过程中对代码进行规范检测， 自定义了一套基础前端代码规范， 以后再上流行规范(考虑到一次性引入成本太大);
+
+### 15
+
+新增npm 命令 gen 通过自定义脚本 根据pageConfig自动生成相关的page目录下的基础页面文件
+修改pageConfig后直接运行 cnpm run gen 即可
