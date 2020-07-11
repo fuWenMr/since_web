@@ -12,5 +12,9 @@ module.exports = [
   {
     name: 'login',
     title: 'since的login页面',
+  },
+  {
+    name: 'user',
+    title: 'since的user页面',
   }
 ];
